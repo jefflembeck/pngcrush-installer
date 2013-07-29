@@ -9,7 +9,7 @@
   // Credit to Obvious Corp for finding this fix.
   var originalPath = process.env.PATH;
   // NPM adds bin directories to the path, which will cause `which` to find the
-  // bin for this package not the actual phantomjs bin.
+  // bin for this package not the actual pngcrush bin.
   process.env.PATH = originalPath.replace(/:[^:]*node_modules[^:]*/g, '');
 
   try {
