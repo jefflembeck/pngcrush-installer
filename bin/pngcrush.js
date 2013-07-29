@@ -19,7 +19,7 @@ execFile( binPath, args, function( err, stdout, stderr ){
     console.log( stderr );
   }
   process.exit();
-});;
+});
 
 process.on('SIGTERM', function() {
   cp.kill('SIGTERM');

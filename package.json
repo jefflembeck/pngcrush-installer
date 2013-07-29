@@ -1,18 +1,18 @@
 {
   "name": "pngcrush-installer",
-  "version": "1.7.66-4",
+  "version": "1.7.66-5",
   "description": "Installer for Pngcrush",
   "homepage": "https://github.com/jlembeck/pngcrush-intaller",
   "repository": {
     "type": "git",
     "url": "https://github.com/jlembeck/pngcrush-installer.git"
   },
-  "main":"lib/pngcrush-installer",
+  "main":"./lib/pngcrush-installer",
   "bin": {
-    "pngcrush": "./bin/pngcrush"
+    "pngcrush": "./bin/pngcrush.js"
   },
   "scripts": {
-    "postinstall": "node install-pngcrush.js"
+    "postinstall": "node ./install-pngcrush.js"
   },
   "dependencies": {
     "which": "1.0.5",
