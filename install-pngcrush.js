@@ -3,8 +3,10 @@
 (function(){
   "use strict";
 
+  var os = require( 'os' );
+
   var which = require( 'which' ),
-  pngc, pci, data, url, isWin;
+  pngc, pci, data, url, isWin, isWin64;
 
   // Credit to Obvious Corp for finding this fix.
   var originalPath = process.env.PATH;
@@ -12,7 +14,8 @@
   // bin for this package not the actual pngcrush bin.
   process.env.PATH = originalPath.replace(/:[^:]*node_modules[^:]*/g, '');
 
-  isWin = process.platform.match(/win32/);
+  isWin = os.platform() === "win32";
+  isWin64 = isWin && (os.arch() === "x64");
 
   try {
     pngc = which.sync( "pngcrush" );
@@ -22,7 +25,7 @@
   } catch( e ){
     pci = require( "./lib/pngcrush-installer" );
 
-    url = pci.getFileURL( isWin );
+    url = pci.getFileURL( isWin, isWin64 );
 
     pci.downloadAndSave( url )
     .then( pci.build )
