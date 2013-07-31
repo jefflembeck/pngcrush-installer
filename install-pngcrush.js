@@ -1,4 +1,5 @@
 /*global require:true*/
+/*global console:true*/
 /*global process:true*/
 (function(){
   "use strict";
@@ -30,7 +31,14 @@
     pci.downloadAndSave( url )
     .then( pci.build )
     .then( pci.move )
-    .then( pci.deleteTemp );
+    .then( pci.deleteTemp )
+    .then( function( _null , err ){
+      if( err ){
+        console.log( err );
+        process.exit(1);
+      }
+      process.exit(0);
+    });
   }
 
 }());
