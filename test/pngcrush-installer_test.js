@@ -63,6 +63,28 @@
         test.equal( dest, d );
         test.done();
       });
+    },
+    'downloadAndSave if windows': function(test){
+      test.expect(1);
+      var url = "http://downloads.sourceforge.net/project/pmt/pngcrush-executables/1.7.66/pngcrush_1_7_66_w32.exe";
+      var installerFilename = "pngcrush_1_7_66_w32.exe";
+      var dest = path.resolve( path.join( __dirname , '..' , installerFilename ) );
+      pci.downloadAndSave( url )
+      .then(function( d , err ){
+        test.equal( dest, d );
+        test.done();
+      });
+    },
+    'downloadAndSave if windows64': function(test){
+      test.expect(1);
+      var url = "http://downloads.sourceforge.net/project/pmt/pngcrush-executables/1.7.66/pngcrush_1_7_66_w64.exe";
+      var installerFilename = "pngcrush_1_7_66_w64.exe";
+      var dest = path.resolve( path.join( __dirname , '..' , installerFilename ) );
+      pci.downloadAndSave( url )
+      .then(function( d , err ){
+        test.equal( dest, d );
+        test.done();
+      });
     }
   };
 }( typeof exports === 'object' && exports || this ));
