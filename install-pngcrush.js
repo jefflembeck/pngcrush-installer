@@ -18,12 +18,13 @@
   isWin = os.platform() === "win32";
   isWin64 = isWin && (os.arch() === "x64");
 
-  try {
-    pngc = which.sync( "pngcrush" );
-    if( pngc ){
-      process.exit();
-    }
-  } catch( e ){
+ // try {
+//    pngc = which.sync( "pngcrush" );
+ //   if( pngc ){
+  //    console.log( "PNGCrush already installed!" );
+   //   process.exit();
+   // }
+  //} catch( e ){
     pci = require( "./lib/pngcrush-installer" );
 
     url = pci.getFileURL( isWin, isWin64 );
@@ -39,6 +40,6 @@
       }
       process.exit(0);
     });
-  }
+  //}
 
 }());

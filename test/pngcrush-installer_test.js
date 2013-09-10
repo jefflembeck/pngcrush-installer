@@ -52,6 +52,17 @@
       test.expect(1);
       test.equal( pci.getFileURL( isWin, is64bit ), url );
       test.done();
+    },
+    'downloadAndSave if not windows': function(test){
+      test.expect(1);
+      var url = "http://downloads.sourceforge.net/project/pmt/pngcrush/1.7.66/pngcrush-1.7.66.tar.gz";
+      var installerFilename = "pngcrush-1.7.66.tar.gz";
+      var dest = path.resolve( path.join( __dirname , '..' , installerFilename ) );
+      pci.downloadAndSave( url )
+      .then(function( d ){
+        test.equal( dest, d );
+        test.done();
+      });
     }
   };
 }( typeof exports === 'object' && exports || this ));
