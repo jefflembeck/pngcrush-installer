@@ -2,6 +2,12 @@
 node_modules
 pngcrush/
 pngcrush-1.7.66.tar.xz
+pngcrush-1.7.67.tar.xz
+*.tar.gz
 pngcrush-1.7.66/
+pngcrush-1.7.67/
 bin/pngcrush
 bin/pngcrush.exe
+*.exe
+Vagrantfile
+.vagrant
