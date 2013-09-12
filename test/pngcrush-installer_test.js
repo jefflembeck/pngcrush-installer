@@ -31,7 +31,7 @@
       done();
     },
     'getFileURL if not windows': function(test) {
-      var url = "http://downloads.sourceforge.net/project/pmt/pngcrush/1.7.66/pngcrush-1.7.66.tar.gz";
+      var url = "http://downloads.sourceforge.net/project/pmt/pngcrush/1.7.67/pngcrush-1.7.67.tar.gz";
       var isWin = false;
       var is64bit = false;
       test.expect(1);
@@ -39,7 +39,7 @@
       test.done();
     },
     'getFileURL if 32bit windows': function(test){
-      var url = "http://downloads.sourceforge.net/project/pmt/pngcrush-executables/1.7.66/pngcrush_1_7_66_w32.exe";
+      var url = "http://downloads.sourceforge.net/project/pmt/pngcrush-executables/1.7.67/pngcrush_1_7_67_w32.exe";
       var isWin = true;
       var is64bit = false;
       test.expect(1);
@@ -47,7 +47,7 @@
       test.done();
     },
     'getFileURL if 64bit windows': function(test){
-      var url = "http://downloads.sourceforge.net/project/pmt/pngcrush-executables/1.7.66/pngcrush_1_7_66_w64.exe";
+      var url = "http://downloads.sourceforge.net/project/pmt/pngcrush-executables/1.7.67/pngcrush_1_7_67_w64.exe";
       var isWin = true;
       var is64bit = true;
       test.expect(1);
@@ -56,8 +56,8 @@
     },
     'downloadAndSave if not windows': function(test){
       test.expect(2);
-      var url = "http://downloads.sourceforge.net/project/pmt/pngcrush/1.7.66/pngcrush-1.7.66.tar.gz";
-      var installerFilename = "pngcrush-1.7.66.tar.gz";
+      var url = "http://downloads.sourceforge.net/project/pmt/pngcrush/1.7.67/pngcrush-1.7.67.tar.gz";
+      var installerFilename = "pngcrush-1.7.67.tar.gz";
       var dest = path.resolve( path.join( __dirname , '..' , installerFilename ) );
       pci.downloadAndSave( url )
       .then(function( d ){
@@ -68,8 +68,8 @@
     },
     'downloadAndSave if windows': function(test){
       test.expect(2);
-      var url = "http://downloads.sourceforge.net/project/pmt/pngcrush-executables/1.7.66/pngcrush_1_7_66_w32.exe";
-      var installerFilename = "pngcrush_1_7_66_w32.exe";
+      var url = "http://downloads.sourceforge.net/project/pmt/pngcrush-executables/1.7.67/pngcrush_1_7_67_w32.exe";
+      var installerFilename = "pngcrush_1_7_67_w32.exe";
       var dest = path.resolve( path.join( __dirname , '..' , installerFilename ) );
       pci.downloadAndSave( url )
       .then(function( d , err ){
@@ -80,8 +80,8 @@
     },
     'downloadAndSave if windows64': function(test){
       test.expect(2);
-      var url = "http://downloads.sourceforge.net/project/pmt/pngcrush-executables/1.7.66/pngcrush_1_7_66_w64.exe";
-      var installerFilename = "pngcrush_1_7_66_w64.exe";
+      var url = "http://downloads.sourceforge.net/project/pmt/pngcrush-executables/1.7.67/pngcrush_1_7_67_w64.exe";
+      var installerFilename = "pngcrush_1_7_67_w64.exe";
       var dest = path.resolve( path.join( __dirname , '..' , installerFilename ) );
       pci.downloadAndSave( url )
       .then(function( d , err ){
@@ -92,7 +92,7 @@
     },
     'build if not windows': function(test){
       test.expect(4);
-      var installerFilename = "pngcrush-1.7.66.tar.gz";
+      var installerFilename = "pngcrush-1.7.67.tar.gz";
       var dest = path.resolve( path.join( __dirname , '..' , installerFilename ) );
       var filename = path.basename( dest );
       var foldername = filename
