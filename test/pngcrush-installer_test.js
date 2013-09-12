@@ -89,6 +89,63 @@
         test.ok( fs.existsSync( dest ) );
         test.done();
       });
-    }
+    },
+    'build if not windows': function(test){
+      test.expect(4);
+      var installerFilename = "pngcrush-1.7.66.tar.gz";
+      var dest = path.resolve( path.join( __dirname , '..' , installerFilename ) );
+      var filename = path.basename( dest );
+      var foldername = filename
+                      .replace( /\.gz/, "" )
+                      .replace( /\.tar/ , "" )
+                      .replace( /\.xz/ , "" )
+                      .replace( /\.exe/, "" );
+      pci.build( dest )
+      .then(function( file , err ){
+        test.ok( !err );
+        test.equal( file.file, path.resolve( path.join( foldername , "pngcrush" )));
+        test.equal( file.destFolder, path.resolve( path.join( __dirname , '..', "bin" )));
+        test.equal( file.dest, path.resolve( path.join( __dirname , '..',  "bin", "pngcrush" )));
+        test.done();
+      });
+    }/**,
+    'build if windows 32': function(test){
+      test.expect(4);
+      var installerFilename = "pngcrush_1_7_66_w32.exe";
+      var dest = path.resolve( path.join( __dirname , '..' , installerFilename ) );
+      var filename = path.basename( dest );
+      var foldername = filename
+                      .replace( /\.gz/, "" )
+                      .replace( /\.tar/ , "" )
+                      .replace( /\.xz/ , "" )
+                      .replace( /\.exe/, "" );
+      pci.build( dest )
+      .then(function( file , err ){
+        test.ok( !err );
+        test.equal( file.file, path.resolve( path.join( foldername , "pngcrush" )));
+        test.equal( file.destFolder, path.resolve( path.join( __dirname , '..', "bin" )));
+        test.equal( file.dest, path.resolve( path.join( __dirname , '..',  "bin", "pngcrush.exe" )));
+        test.done();
+      });
+    },
+    'build if windows 64': function(test){
+      test.expect(4);
+      var installerFilename = "pngcrush_1_7_66_w64.exe";
+      var dest = path.resolve( path.join( __dirname , '..' , installerFilename ) );
+      var filename = path.basename( dest );
+      var foldername = filename
+                      .replace( /\.gz/, "" )
+                      .replace( /\.tar/ , "" )
+                      .replace( /\.xz/ , "" )
+                      .replace( /\.exe/, "" );
+      pci.build( dest )
+      .then(function( file , err ){
+        test.ok( !err );
+        test.equal( file.file, path.resolve( path.join( foldername , "pngcrush" )));
+        test.equal( file.destFolder, path.resolve( path.join( __dirname , '..', "bin" )));
+        test.equal( file.dest, path.resolve( path.join( __dirname , '..',  "bin", "pngcrush.exe" )));
+        test.done();
+      });
+    }*/
   };
 }( typeof exports === 'object' && exports || this ));
