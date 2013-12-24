@@ -56,7 +56,7 @@
     },
     'downloadAndSave if not windows': function(test){
       test.expect(2);
-      var url = "http://downloads.sourceforge.net/project/pmt/pngcrush/1.7.67/pngcrush-1.7.67.tar.gz";
+      var url = "http://downloads.sourceforge.net/project/pmt/pngcrush/old-versions/1.7/1.7.67/pngcrush-1.7.67.tar.gz";
       var installerFilename = "pngcrush-1.7.67.tar.gz";
       var dest = path.resolve( path.join( __dirname , '..' , installerFilename ) );
       pci.downloadAndSave( url )
