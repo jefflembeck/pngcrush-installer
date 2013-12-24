@@ -5,6 +5,8 @@ pngcrush-1.7.66.tar.gz
 pngcrush-1.7.67.tar.gz
 pngcrush-1.7.66/
 pngcrush-1.7.67/
+pngcrush_1_7_67_w32.exe
+pngcrush_1_7_67_w64.exe
 bin/pngcrush
 bin/pngcrush.exe
 .vagrant
