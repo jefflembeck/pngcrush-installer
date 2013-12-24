@@ -39,6 +39,9 @@
         process.exit(1);
       }
       process.exit(0);
+    }).on( 'error' , function( err ){
+      console.log("An error occurred: " + err.detail);
+      process.exit(1);
     });
   //}
 
