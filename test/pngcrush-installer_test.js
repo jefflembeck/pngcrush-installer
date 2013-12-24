@@ -108,6 +108,48 @@
         test.equal( file.dest, path.resolve( path.join( __dirname , '..',  "bin", "pngcrush" )));
         test.done();
       });
+    },
+    'getFileURL return the expected url (basic)': function(test){
+      test.expect(1);
+      var expectedUrl = "http://downloads.sourceforge.net/project/pmt/pngcrush/1.7.67/pngcrush-1.7.67.tar.gz";
+      var calculatedUrl = pci.getFileURL( false, false );
+      test.equal( expectedUrl, calculatedUrl );
+      test.done();
+    },
+    'getFileURL return the expected url (basic, archived)': function(test){
+      test.expect(1);
+      var expectedUrl = "http://downloads.sourceforge.net/project/pmt/pngcrush/old-versions/1.7/1.7.67/pngcrush-1.7.67.tar.gz";
+      var calculatedUrl = pci.getFileURL( false, false, true );
+      test.equal( expectedUrl, calculatedUrl );
+      test.done();
+    },
+    'getFileURL return the expected url (windows)': function(test){
+      test.expect(1);
+      var expectedUrl = "http://downloads.sourceforge.net/project/pmt/pngcrush-executables/1.7.67/pngcrush_1_7_67_w32.exe";
+      var calculatedUrl = pci.getFileURL( true, false, false );
+      test.equal( expectedUrl, calculatedUrl );
+      test.done();
+    },
+    'getFileURL return the expected url (windows, archived)': function(test){
+      test.expect(1);
+      var expectedUrl = "http://downloads.sourceforge.net/project/pmt/pngcrush-executables/old-executables/1.7/1.7.67/pngcrush_1_7_67_w32.exe";
+      var calculatedUrl = pci.getFileURL( true, false, true );
+      test.equal( expectedUrl, calculatedUrl );
+      test.done();
+    },
+    'getFileURL return the expected url (windows, x64)': function(test){
+      test.expect(1);
+      var expectedUrl = "http://downloads.sourceforge.net/project/pmt/pngcrush-executables/1.7.67/pngcrush_1_7_67_w64.exe";
+      var calculatedUrl = pci.getFileURL( true, true, false );
+      test.equal( expectedUrl, calculatedUrl );
+      test.done();
+    },
+    'getFileURL return the expected url (windows, x64, archived)': function(test){
+      test.expect(1);
+      var expectedUrl = "http://downloads.sourceforge.net/project/pmt/pngcrush-executables/old-executables/1.7/1.7.67/pngcrush_1_7_67_w64.exe";
+      var calculatedUrl = pci.getFileURL( true, true, true );
+      test.equal( expectedUrl, calculatedUrl );
+      test.done();
     }/**,
     'build if windows 32': function(test){
       test.expect(4);
