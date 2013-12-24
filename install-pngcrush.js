@@ -27,22 +27,31 @@
   //} catch( e ){
     pci = require( "./lib/pngcrush-installer" );
 
-    url = pci.getFileURL( isWin, isWin64 );
+    var install = function(isWin, isWin64, archived){
+      url = pci.getFileURL( isWin, isWin64, archived );
 
-    pci.downloadAndSave( url )
-    .then( pci.build )
-    .then( pci.move )
-    .then( pci.deleteTemp )
-    .then( function( _null , err ){
-      if( err ){
-        console.log( err );
-        process.exit(1);
-      }
-      process.exit(0);
-    }).on( 'error' , function( err ){
-      console.log("An error occurred: " + err.detail);
-      process.exit(1);
-    });
+      pci.downloadAndSave( url )
+        .then( pci.build )
+        .then( pci.move )
+        .then( pci.deleteTemp )
+        .then( function( _null , err ){
+          if( err ){
+            console.log( err );
+            process.exit(1);
+          }
+          process.exit(0);
+        }).on( 'error' , function( err ) {
+          if ( err.detail == '404 - File not found' && !archived ) {
+            install( isWin, isWin64, true );
+          } else {
+            console.log("An error occurred: " + err.detail);
+            process.exit(1);
+          }
+        });
+    };
+
+    install( isWin, isWin64, false );
+
   //}
 
 }());
