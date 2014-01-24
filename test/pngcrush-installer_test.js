@@ -54,10 +54,22 @@
       test.equal( pci.getFileURL( isWin, is64bit ), url );
       test.done();
     },
-    'downloadAndSave if not windows': function(test){
+    'downloadAndSave if not windows old': function(test){
       test.expect(2);
       var url = "http://downloads.sourceforge.net/project/pmt/pngcrush/old-versions/1.7/1.7.67/pngcrush-1.7.67.tar.gz";
       var installerFilename = "pngcrush-1.7.67.tar.gz";
+      var dest = path.resolve( path.join( __dirname , '..' , installerFilename ) );
+      pci.downloadAndSave( url )
+      .then(function( d ){
+        test.equal( dest, d );
+        test.ok( fs.existsSync( dest ) );
+        test.done();
+      });
+    },
+    'downloadAndSave if not windows': function(test){
+      test.expect(2);
+      var url = "http://downloads.sourceforge.net/project/pmt/pngcrush/1.7.70/pngcrush-1.7.70.tar.gz";
+      var installerFilename = "pngcrush-1.7.70.tar.gz";
       var dest = path.resolve( path.join( __dirname , '..' , installerFilename ) );
       pci.downloadAndSave( url )
       .then(function( d ){
