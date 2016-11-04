@@ -1,6 +1,6 @@
 {
   "name": "pngcrush-installer",
-  "version": "1.7.72-0",
+  "version": "1.8.10",
   "description": "Installer for Pngcrush",
   "homepage": "https://github.com/jlembeck/pngcrush-installer",
   "repository": {
@@ -13,7 +13,7 @@
       "url": "https://github.com/jlembeck/pngcrush-installer/blog/master/LICENSE-MIT"
     }
   ],
-  "main":"./lib/pngcrush-installer",
+  "main": "./lib/pngcrush-installer",
   "bin": {
     "pngcrush": "./bin/pngcrush.js"
   },
@@ -32,4 +32,3 @@
     "grunt-contrib-nodeunit": "0.1.2"
   }
 }
-
